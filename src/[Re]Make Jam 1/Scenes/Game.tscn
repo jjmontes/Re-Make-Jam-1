@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/EnemyMasterMind.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.2339, 26.8898 )
@@ -16,6 +17,7 @@ extents = Vector2( 10, 299.02 )
 extents = Vector2( 10, 300.02 )
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 523.251, 566.062 )
@@ -29,7 +31,9 @@ __meta__ = {
 [node name="Collision" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 1 )
 
-[node name="Enemy" type="KinematicBody2D" parent="."]
+[node name="Enemy" type="KinematicBody2D" parent="." groups=[
+"enemy",
+]]
 position = Vector2( 94, 84 )
 script = ExtResource( 2 )
 __meta__ = {
