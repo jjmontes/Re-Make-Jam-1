@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.2339, 26.8898 )
@@ -6,7 +8,8 @@ extents = Vector2( 31.2339, 26.8898 )
 [node name="Game" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 524.44, 547.035 )
+position = Vector2( 523.251, 566.062 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
