@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/EnemyMasterMind.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Areas.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/BulletBuster.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.2339, 26.8898 )
@@ -17,11 +18,11 @@ extents = Vector2( 10, 299.02 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 300.02 )
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 506.38, 10 )
-
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 488.38, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 510.432, 38.7713 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -69,12 +70,18 @@ shape = SubResource( 4 )
 [node name="Areas" type="Area2D" parent="."]
 script = ExtResource( 4 )
 
-[node name="BulletBuster" type="CollisionShape2D" parent="Areas"]
-position = Vector2( 511, -12 )
-shape = SubResource( 5 )
-
 [node name="EnemiesWin" type="CollisionShape2D" parent="Areas"]
 position = Vector2( 511, 502 )
 shape = SubResource( 6 )
+
+[node name="BulletBuster" type="Area2D" parent="."]
+position = Vector2( 511.945, -4.24265 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletBuster"]
+shape = SubResource( 7 )
 [connection signal="body_entered" from="Areas" to="Areas" method="_on_Areas_enemy_entered"]
-[connection signal="body_entered" from="Areas" to="Areas" method="_on_Areas_bullet_entered"]
+[connection signal="area_entered" from="BulletBuster" to="BulletBuster" method="_on_BulletBuster_area_entered"]
