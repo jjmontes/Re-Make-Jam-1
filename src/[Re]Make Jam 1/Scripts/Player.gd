@@ -28,7 +28,7 @@ func get_input():
 
 func get_shoot(delta):
 	if (next_shoot_in <= 0):
-		var is_shoot = Input.is_action_just_pressed("ui_select") || Input.is_mouse_button_pressed(BUTTON_LEFT)
+		var is_shoot = Input.is_action_pressed("ui_select") || Input.is_mouse_button_pressed(BUTTON_LEFT)
 		if is_shoot:
 			next_shoot_in = time_to_shoot
 			var shoot = shoot_scene.instance()
