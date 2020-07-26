@@ -8,20 +8,21 @@ var next_move_in = time_to_move
 var move_to_right = true
 var move_to_down = false
 
+var enemies_position = [ 
+	{ "x":214, "y":  84 }, { "x":334, "y":  84 }, { "x":454, "y":  84 }, { "x":574, "y":  84 }, { "x":694, "y":  84 }, 
+	{ "x":214, "y": 174 }, { "x":334, "y": 174 }, { "x":454, "y": 174 }, { "x":574, "y": 174 }, { "x":694, "y": 174 }, 
+	{ "x":214, "y": 264 }, { "x":334, "y": 264 }, { "x":454, "y": 264 }, { "x":574, "y": 264 }, { "x":694, "y": 264 }, 
+	]
+
 func _ready():
 	start_level()
 
 func start_level():
-	var enemy = enemy_scene.instance()
-	enemy.position = Vector2(94, 84)
-	add_child(enemy)
-	enemy = enemy_scene.instance()
-	enemy.position = Vector2(214, 84)
-	add_child(enemy)
+	for pos in enemies_position:
+		var enemy = enemy_scene.instance()
+		enemy.position = Vector2(pos.x, pos.y)
+		add_child(enemy)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 func _physics_process(delta):
 	if next_move_in <= 0:
 		next_move_in = time_to_move
