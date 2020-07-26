@@ -1,16 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/EnemyMasterMind.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/EnemiesWin.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/BulletBuster.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.2339, 26.8898 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 31, 28.0163 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 299.02 )
@@ -42,20 +39,7 @@ shape = SubResource( 1 )
 [node name="Canon" type="Position2D" parent="Player"]
 position = Vector2( 0, -40 )
 
-[node name="Enemy" type="KinematicBody2D" parent="." groups=[
-"enemy",
-]]
-position = Vector2( 94, 84 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Enemy"]
-position = Vector2( 0, -1 )
-
-[node name="Collision" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource( 2 )
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
 
 [node name="Limits" type="StaticBody2D" parent="."]
 
