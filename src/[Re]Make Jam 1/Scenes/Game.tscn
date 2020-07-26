@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/EnemyMasterMind.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/EnemiesWin.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/BulletBuster.gd" type="Script" id=5]
@@ -38,8 +37,6 @@ shape = SubResource( 1 )
 
 [node name="Canon" type="Position2D" parent="Player"]
 position = Vector2( 0, -40 )
-
-[node name="Enemy" parent="." instance=ExtResource( 2 )]
 
 [node name="Limits" type="StaticBody2D" parent="."]
 

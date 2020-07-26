@@ -1,15 +1,20 @@
 extends Node2D
 
+var enemy_scene = preload("res://Scenes/Enemy.tscn")
+
 var time_to_move = 0.4
 var next_move_in = time_to_move
 
 var move_to_right = true
 var move_to_down = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	start_level()
 
+func start_level():
+	var enemy = enemy_scene.instance()
+	enemy.position = Vector2(94, 84)
+	add_child(enemy)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
