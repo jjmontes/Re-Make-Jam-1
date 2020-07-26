@@ -31,7 +31,9 @@ func get_shoot(delta):
 		var is_shoot = Input.is_action_just_pressed("ui_select") || Input.is_mouse_button_pressed(BUTTON_LEFT)
 		if is_shoot:
 			next_shoot_in = time_to_shoot
-			$Canon.add_child(shoot_scene.instance())
+			var shoot = shoot_scene.instance()
+			shoot.position = $Canon.get_global_position()
+			get_parent().add_child(shoot)
 	else:
 		next_shoot_in -= delta
 
