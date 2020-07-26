@@ -7,17 +7,20 @@ var velocity = Vector2()
 
 func move_to_left(delta):
 	velocity = Vector2(-lateral_speed, 0)
-	return move_and_collide(velocity * delta)
+	move_and_collide(velocity * delta)
 
 func move_to_right(delta):
 	velocity = Vector2(lateral_speed, 0)
-	return move_and_collide(velocity * delta)
+	move_and_collide(velocity * delta)
 
 func move_to_down(delta):
 	velocity = Vector2(0, down_speed)
 	return move_and_collide(velocity * delta)
 	
+func test_move_to_left(delta):
+	velocity = Vector2(-lateral_speed, 0)
+	return test_move(transform, velocity * delta)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func test_move_to_right(delta):
+	velocity = Vector2(lateral_speed, 0)
+	return test_move(transform, velocity * delta)
