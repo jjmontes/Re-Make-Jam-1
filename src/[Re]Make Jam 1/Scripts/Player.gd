@@ -5,6 +5,8 @@ var velocity = Vector2()
 var time_to_shoot = 1
 var next_shoot_in = 0
 
+var shoot_scene = preload("res://Scenes/Shoot.tscn")
+
 func _ready():
 	pass # Replace with function body.
 
@@ -29,7 +31,7 @@ func get_shoot(delta):
 		var is_shoot = Input.is_action_just_pressed("ui_select") || Input.is_mouse_button_pressed(BUTTON_LEFT)
 		if is_shoot:
 			next_shoot_in = time_to_shoot
-			print("disparo")
+			$Canon.add_child(shoot_scene.instance())
 	else:
 		next_shoot_in -= delta
 
